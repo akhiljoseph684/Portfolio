@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html class="scroll-smooth">
   <head>
-
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./images/fav_icon.jpg" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="./images/fav_icon.jpg"
+      type="image/x-icon"
+    />
     <title>Portfolio.</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script
@@ -23,7 +25,9 @@
       * {
         box-sizing: border-box;
       }
-      img,a,i{
+      img,
+      a,
+      i {
         cursor: pointer;
       }
       @keyframes typing {
@@ -76,8 +80,8 @@
     <nav
       class="flex justify-between items-center h-20 w-full px-[5%] bg-black z-1 fixed top-0"
     >
-      <div class="text-2xl text-[var(--theme-color)] font-bold">
-        Akhil Joseph
+      <div class="text-2xl text-[var(--theme-color)] font-bold cursor-pointer">
+        <a href="#home">Akhil Joseph</a>
       </div>
       <div class="h-8 hidden md:flex gap-5 text-white uppercase">
         <a
@@ -111,7 +115,9 @@
           onclick="dropdown()"
           >Theme</a
         >
-        <div class="themes hidden flex gap-5 bg-black absolute  top-16 right-18 rounded-l-xl rounded-b-xl border border-white p-10">
+        <div
+          class="themes hidden flex gap-5 bg-black absolute top-16 right-18 rounded-l-xl rounded-b-xl border border-white p-10"
+        >
           <div
             onclick="setTheme('')"
             class="w-4 h-4 rounded-full bg-red-600 hover:scale-125"
@@ -177,7 +183,9 @@
         onclick="dropdownMobile()"
         >Theme</a
       >
-      <div class="themeMobile hidden flex gap-5 justify-center relative left-10 top-1 p-10 rounded-r-xl rounded-b-xl border border-white w-56">
+      <div
+        class="themeMobile hidden flex gap-5 justify-center relative left-10 top-1 p-10 rounded-r-xl rounded-b-xl border border-white w-56"
+      >
         <div
           onclick="setTheme('')"
           class="w-4 h-4 rounded-full bg-red-600 hover:scale-125"
@@ -224,11 +232,13 @@
               class="w-10 hover:scale-105"
             />
           </a>
-          <img
-            src="./images/images-removebg-preview.png"
-            alt=""
-            class="w-24 text-white hover:scale-105"
-          />
+          <a href="https://github.com/akhiljoseph684" target="_blank">
+            <img
+              src="./images/images-removebg-preview.png"
+              alt=""
+              class="w-24 text-white hover:scale-105"
+            />
+          </a>
         </div>
       </div>
       <div class="w-full flex justify-center items-center">
@@ -454,15 +464,21 @@
       <div
         class="flex flex-col justify-center items-center md:flex-row gap-16 py-16"
       >
-        <div class="flex items-center gap-2">
+        <div
+          class="flex items-center gap-2 hover:text-[var(--theme-color)] cursor-pointer"
+        >
           <i class="fa-solid fa-envelope"></i>
           <p>akhiljozeph10@gmail.com</p>
         </div>
-        <div class="flex items-center gap-2">
+        <div
+          class="flex items-center gap-2 hover:text-[var(--theme-color)] cursor-pointer"
+        >
           <i class="fa-solid fa-location-dot"></i>
           <p>Eranakulam, Kerala, India</p>
         </div>
-        <div class="flex items-center gap-2">
+        <div
+          class="flex items-center gap-2 hover:text-[var(--theme-color)] cursor-pointer"
+        >
           <i class="fa-solid fa-phone"></i>
           <p>91+ 9544810427</p>
         </div>
@@ -470,19 +486,38 @@
       <hr class="border-t border-[rgba(255,255,255,0.2)] w-4/5 mx-auto my-4" />
       <div class="flex gap-12 text-white py-16">
         <a href="https://x.com/akhil_joseph_10" target="_blank">
-          <i class="hover:scale-125 hover:text-[var(--theme-color)] text-3xl fa-brands fa-x-twitter"></i>
+          <i
+            class="hover:scale-125 hover:text-[var(--theme-color)] text-3xl fa-brands fa-x-twitter"
+          ></i>
         </a>
-        <a href="https://www.instagram.com/akhil_joseph_10?igsh=MTdlbHl3cWJ4NTA5Zg==" target="_blank">
-          <i class="hover:scale-125 hover:text-[var(--theme-color)] text-3xl fa-brands fa-instagram"></i>
+        <a
+          href="https://www.instagram.com/akhil_joseph_10?igsh=MTdlbHl3cWJ4NTA5Zg=="
+          target="_blank"
+        >
+          <i
+            class="hover:scale-125 hover:text-[var(--theme-color)] text-3xl fa-brands fa-instagram"
+          ></i>
         </a>
-        <a href="https://www.facebook.com/profile.php?id=100073411611536" target="_blank">
-          <i class="hover:scale-125 hover:text-[var(--theme-color)] text-3xl fa-brands fa-facebook"></i>
+        <a
+          href="https://www.facebook.com/profile.php?id=100073411611536"
+          target="_blank"
+        >
+          <i
+            class="hover:scale-125 hover:text-[var(--theme-color)] text-3xl fa-brands fa-facebook"
+          ></i>
         </a>
-        <a href="https://github.com/akhiljoseph684"  target="_blank">
-          <i class="hover:scale-125 hover:text-[var(--theme-color)] text-3xl fa-brands fa-github"></i>
+        <a href="https://github.com/akhiljoseph684" target="_blank">
+          <i
+            class="hover:scale-125 hover:text-[var(--theme-color)] text-3xl fa-brands fa-github"
+          ></i>
         </a>
-        <a href="https://www.linkedin.com/in/akhil-joseph-093b8a341/" target="_blank">
-          <i class="hover:scale-125 hover:text-[var(--theme-color)] text-3xl fa-brands fa-linkedin"></i>
+        <a
+          href="https://www.linkedin.com/in/akhil-joseph-093b8a341/"
+          target="_blank"
+        >
+          <i
+            class="hover:scale-125 hover:text-[var(--theme-color)] text-3xl fa-brands fa-linkedin"
+          ></i>
         </a>
       </div>
       <hr class="border-t border-[rgba(255,255,255,0.2)] w-4/5 mx-auto my-4" />
