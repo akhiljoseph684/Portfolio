@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./images/fav_icon.jpg" type="image/x-icon" />
+    <title>Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "I4LgUn8tHyyWGz1rt",
+        });
+      })();
+    </script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      img,a,i{
+        cursor: pointer;
+      }
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 20ch;
+        }
+      }
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+      .typing {
+        animation: typing 3s steps(20), blink 0.7s step-end infinite;
+      }
+      .fade-in {
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out 0.3s forwards;
+      }
+
+      /* Keyframes for fade in */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      :root {
+        --theme-color: #ef4444; /* red-500 */
+      }
+
+      /* Other themes */
+      .blue {
+        --theme-color: #3b82f6; /* blue-500 */
+      }
+      .green {
+        --theme-color: #10b981; /* green-500 */
+      }
+      .yellow {
+        --theme-color: #facc15; /* yellow-400 */
+      }
+    </style>
+  </head>
+  <body class="font-sans bg-black text-white">
+    <nav
+      class="flex justify-between items-center h-20 w-full px-[5%] bg-black z-1 fixed top-0"
+    >
+      <div class="text-2xl text-[var(--theme-color)] font-bold">
+        Akhil Joseph
+      </div>
+      <div class="h-8 hidden md:flex gap-5 text-white uppercase">
+        <a
+          class="h-8 hover:scale-105 flex items-center hover:text-[var(--theme-color)] hover:border-b-2 hover:border-[var(--theme-color)]"
+          href="#home"
+          >Home</a
+        >
+        <a
+          class="h-8 hover:scale-105 flex items-center hover:text-[var(--theme-color)] hover:border-b-2 hover:border-[var(--theme-color)]"
+          href="#about"
+          >About</a
+        >
+        <a
+          class="h-8 hover:scale-105 flex items-center hover:text-[var(--theme-color)] hover:border-b-2 hover:border-[var(--theme-color)]"
+          href="#skill"
+          >Skill</a
+        >
+        <a
+          class="h-8 hover:scale-105 flex items-center hover:text-[var(--theme-color)] hover:border-b-2 hover:border-[var(--theme-color)]"
+          href="#work"
+          >work</a
+        >
+        <a
+          class="h-8 hover:scale-105 flex items-center hover:text-[var(--theme-color)] hover:border-b-2 hover:border-[var(--theme-color)]"
+          href="#contact"
+          >Contact Me</a
+        >
+        <a
+          class="h-8 hover:scale-105 flex items-center hover:text-[var(--theme-color)] hover:border-b-2 hover:border-[var(--theme-color)]"
+          href="#"
+          onclick="dropdown()"
+          >Theme</a
+        >
+        <div class="themes hidden flex gap-5 bg-black absolute  top-16 right-18 rounded-l-xl rounded-b-xl border border-white p-10">
+          <div
+            onclick="setTheme('')"
+            class="w-4 h-4 rounded-full bg-red-600 hover:scale-125"
+          ></div>
+          <div
+            onclick="setTheme('blue')"
+            class="w-4 h-4 rounded-full bg-blue-600 hover:scale-125"
+          ></div>
+          <div
+            onclick="setTheme('yellow')"
+            class="w-4 h-4 rounded-full bg-yellow-600 hover:scale-125"
+          ></div>
+          <div
+            onclick="setTheme('green')"
+            class="w-4 h-4 rounded-full bg-green-600 hover:scale-125"
+          ></div>
+        </div>
+      </div>
+      <div class="md:hidden" onclick="menu(true)" id="menu-btn">
+        <i class="fa-solid fa-bars text-white text-3xl"></i>
+      </div>
+      <div class="hidden md:hidden" onclick="menu(false)" id="menu-close">
+        <i class="fa-solid fa-xmark text-white text-3xl"></i>
+      </div>
+    </nav>
+    <nav
+      class="hidden flex-col g-10 py-5 text-white fixed z-2 w-full top-20 bg-black"
+      id="mobile-nav"
+    >
+      <a
+        class="hover:text-[var(--theme-color)] hover:border-l-2 text-[20px] hover:border-[var(--theme-color)] px-5"
+        href="#home"
+        onclick="removeNav()"
+        >Home</a
+      >
+      <a
+        class="hover:text-[var(--theme-color)] hover:border-l-2 text-[20px] hover:border-[var(--theme-color)] px-5"
+        href="#about"
+        onclick="removeNav()"
+        >About</a
+      >
+      <a
+        class="hover:text-[var(--theme-color)] hover:border-l-2 text-[20px] hover:border-[var(--theme-color)] px-5"
+        href="#skill"
+        onclick="removeNav()"
+        >Skill</a
+      >
+      <a
+        class="hover:text-[var(--theme-color)] hover:border-l-2 text-[20px] hover:border-[var(--theme-color)] px-5"
+        href="#work"
+        onclick="removeNav()"
+        >Work</a
+      >
+      <a
+        class="hover:text-[var(--theme-color)] hover:border-l-2 text-[20px] hover:border-[var(--theme-color)] px-5"
+        href="#contact"
+        onclick="removeNav()"
+        >Contact Me</a
+      >
+      <a
+        class="hover:text-[var(--theme-color)] hover:border-l-2 text-[20px] hover:border-[var(--theme-color)] px-5"
+        href="#"
+        onclick="dropdownMobile()"
+        >Theme</a
+      >
+      <div class="themeMobile hidden flex gap-5 justify-center relative left-10 top-1 p-10 rounded-r-xl rounded-b-xl border border-white w-56">
+        <div
+          onclick="setTheme('')"
+          class="w-4 h-4 rounded-full bg-red-600 hover:scale-125"
+        ></div>
+        <div
+          onclick="setTheme('blue')"
+          class="w-4 h-4 rounded-full bg-blue-600 hover:scale-125"
+        ></div>
+        <div
+          onclick="setTheme('yellow')"
+          class="w-4 h-4 rounded-full bg-yellow-600 hover:scale-125"
+        ></div>
+        <div
+          onclick="setTheme('green')"
+          class="w-4 h-4 rounded-full bg-green-600 hover:scale-125"
+        ></div>
+      </div>
+    </nav>
+    <section
+      id="home"
+      class="flex flex-col gap-4 justify-center items-center pt-25 px-[5%] text-white w-full md:flex-row"
+    >
+      <div
+        class="flex flex-col justify-center items-center md:items-center w-full"
+      >
+        <h1
+          class="typing overflow-hidden whitespace-nowrap text-3xl md:text-4xl font-bold w-[20ch] ml-20"
+        >
+          Hello I'm Developer
+        </h1>
+        <div>
+          <p class="text-left">
+            I love to create beautiful and efficient websites
+          </p>
+        </div>
+        <div class="flex justify-center items-center">
+          <a
+            href="https://www.linkedin.com/in/akhil-joseph-093b8a341/"
+            target="_blank"
+          >
+            <img
+              src="./images/linkedin.svg"
+              alt=""
+              class="w-10 hover:scale-105"
+            />
+          </a>
+          <img
+            src="./images/images-removebg-preview.png"
+            alt=""
+            class="w-24 text-white hover:scale-105"
+          />
+        </div>
+      </div>
+      <div class="w-full flex justify-center items-center">
+        <img
+          src="./images/me_red.png"
+          alt=""
+          class="w-[500px] rounded-full"
+          id="me"
+        />
+      </div>
+    </section>
+    <section
+      id="about"
+      class="flex flex-col justify-center items-center gap-10 px-10 py-20 fade-in"
+    >
+      <h1 class="text-3xl font-bold text-[var(--theme-color)]">About me</h1>
+      <div class="flex flex-col gap-4">
+        <h1 class="text-3xl font-bold">Hi, I'm Akhil Joseph</h1>
+        <p class="text-lg mt-10">
+          I’m a passionate Full-Stack Web Developer with hands-on experience in
+          building modern, responsive, and user-friendly websites and
+          applications. I enjoy turning ideas into reality using technologies
+          like HTML, CSS, JavaScript, and Tailwind CSS. Currently, I’m doing an
+          internship as a Full-Stack Developer, where I’m improving my technical
+          skills, learning teamwork, and working on real-world projects. My goal
+          is to build creative and efficient web solutions that make a
+          difference. Outside of coding, I’m curious about business development,
+          problem-solving, and exploring how technology can help people and
+          communities grow.
+        </p>
+      </div>
+    </section>
+    <section
+      id="skill"
+      class="grid grid-row-2 items-center justify-center h-auto gap-5 w-full py-20"
+    >
+      <h1 class="text-3xl font-bold text-center p-0 text-[var(--theme-color)]">
+        Skill
+      </h1>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 px-10 gap-10 uppercase"
+      >
+        <div
+          class="flex flex-col items-center justify-center gap-5 shadow-[0_0_5px_rgba(255,255,255,0.8)] p-5 hover:scale-101 duration-100"
+        >
+          <div class="w-full h-1/2 flex justify-center">
+            <img
+              src="./images/html5-day.svg"
+              alt=""
+              class="w-1/2 hover:scale-105 duration-300"
+            />
+          </div>
+          <h1 class="text-3xl font-bold">html</h1>
+          <p class="hidden sm:block">
+            HTML (Hypertext Markup Language) is the standard markup language
+            used to create web pages. It provides the structure and content of a
+            web page, using tags to define elements like headings, paragraphs,
+            images, and links. HTML is the backbone of a website, and is used in
+            conjunction with CSS (for styling) and JavaScript (for
+            interactivity) to create a complete web page.
+          </p>
+        </div>
+        <div
+          class="flex flex-col items-center justify-center gap-5 shadow-[0_0_5px_rgba(255,255,255,0.8)] p-5 hover:scale-101 duration-100"
+        >
+          <div class="w-full h-1/2 flex justify-center">
+            <img
+              src="./images/CSS3.svg"
+              alt=""
+              class="w-1/2 hover:scale-105 duration-300"
+            />
+          </div>
+          <h1 class="text-3xl font-bold">css</h1>
+          <p class="hidden sm:block">
+            CSS (Cascading Style Sheets) is a styling language used to control
+            the layout and appearance of web pages written in HTML. It separates
+            presentation from structure, allowing for flexible and maintainable
+            design. CSS is used to add colors, fonts, spacing, and other visual
+            effects to HTML elements.
+          </p>
+        </div>
+        <div
+          class="flex flex-col items-center justify-center gap-5 shadow-[0_0_5px_rgba(255,255,255,0.8)] p-5 hover:scale-101 duration-100"
+        >
+          <div class="w-full h-1/2 flex justify-center">
+            <img
+              src="./images/js-brands.svg"
+              alt=""
+              class="w-1/2 hover:scale-105 duration-300"
+            />
+          </div>
+          <h1 class="text-3xl font-bold">javascript</h1>
+          <p class="hidden sm:block">
+            JavaScript (JS) is a programming language used to add interactivity
+            to web pages. It allows developers to create dynamic effects,
+            animate elements, and respond to user interactions. JS is used for
+            client-side scripting, executing on the user's browser to enhance
+            the user experience.
+          </p>
+        </div>
+        <div
+          class="flex flex-col items-center justify-center gap-5 shadow-[0_0_5px_rgba(255,255,255,0.8)] p-5 hover:scale-101 duration-100"
+        >
+          <div class="w-full h-1/2 flex justify-center">
+            <img
+              src="./images/tailwindcss-mark.d52e9897.svg"
+              alt=""
+              class="w-1/2 hover:scale-105 duration-300"
+            />
+          </div>
+          <h1 class="text-3xl font-bold">tailwind css</h1>
+          <p class="hidden sm:block">
+            Tailwind CSS is a utility-first CSS framework that allows developers
+            to write efficient and customizable CSS code. It provides a set of
+            pre-built classes to style HTML elements, making it easy to create
+            responsive and consistent designs without writing custom CSS.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="work" class="uppercase pt-20 p-10 flex flex-col gap-5">
+      <h1
+        class="text-center text-3xl font-bold pb-10 text-[var(--theme-color)]"
+      >
+        work
+      </h1>
+      <div class="flex flex-col gap-10 flex-wrap justify-center items-center">
+        <a href="" class="w-full md:w-1/2 flex flex-col gap-8">
+          <p class="uppercase text-center text-2xl font-bold">pepperfry</p>
+          <img
+            src="./images/pepperfry.png"
+            alt=""
+            class="w-full h-56 md:h-64 rounded-2xl hover:scale-105 duration-300"
+          />
+        </a>
+        <hr
+          class="border-t border-[rgba(255,255,255,0.2)] w-4/5 mx-auto my-4"
+        />
+        <a href="" class="w-full md:w-1/2 flex flex-col gap-8">
+          <p class="uppercase text-center text-2xl font-bold">
+            w3 school navbar
+          </p>
+          <img
+            src="./images/w3schools.png"
+            alt=""
+            class="w-full h-56 md:h-64 rounded-2xl hover:scale-105 duration-300"
+          />
+        </a>
+        <hr
+          class="border-t border-[rgba(255,255,255,0.2)] w-4/5 mx-auto my-4"
+        />
+        <a href="" class="w-full md:w-1/2 flex flex-col gap-8">
+          <p class="uppercase text-center text-2xl font-bold">youtube clone</p>
+          <img
+            src="./images/youtube.png"
+            alt=""
+            class="w-full h-56 md:h-64 rounded-2xl hover:scale-105 duration-300"
+          />
+        </a>
+      </div>
+    </section>
+    <section
+      id="contact"
+      class="flex flex-col items-center justify-center pt-20 pb-5"
+    >
+      <h1 class="text-3xl font-bold uppercase pb-10 text-[var(--theme-color)]">
+        contact me
+      </h1>
+      <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="p-10 flex flex-col gap-4">
+          <h1 class="text-3xl font-bold">My Address</h1>
+          <h1 class="text-xl">
+            <span class="font-bold text-[var(--theme-color)]">Location :</span>
+            vengassery(H), chellanam(PO), Ernakulam,682008(PIN)
+          </h1>
+          <h1 class="text-xl">
+            <span class="font-bold text-[var(--theme-color)]">City :</span>
+            Kochi
+          </h1>
+          <h1 class="text-xl">
+            <span class="font-bold text-[var(--theme-color)]">City :</span>
+            Kerala
+          </h1>
+          <h1 class="text-xl">
+            <span class="font-bold text-[var(--theme-color)]">Country :</span>
+            India
+          </h1>
+          <h1 class="text-xl">
+            <span class="font-bold text-[var(--theme-color)]">Email :</span>
+            akhiljozeph10@gmail.com
+          </h1>
+        </div>
+        <div class="p-10 flex flex-col gap-5 md:gap-3">
+          <input
+            class="border p-4 border-white focus:border-[var(--theme-color)] focus:outline-none rounded-xl"
+            type="text"
+            placeholder="Enter Your Name"
+            id="name"
+          />
+          <input
+            class="border p-4 border-white focus:border-[var(--theme-color)] focus:outline-none rounded-xl"
+            type="email"
+            placeholder="Enter Your Email"
+            id="email"
+          />
+          <textarea
+            class="border p-4 border-white focus:border-[var(--theme-color)] focus:outline-none rounded-xl"
+            rows="5"
+            cols="8"
+            placeholder="Message"
+            id="msg"
+          ></textarea>
+          <button
+            class="bg-[var(--theme-color)] hover:bg-[var(--theme-color)] p-3 rounded-xl text-black"
+            onclick="func()"
+          >
+            Send
+          </button>
+        </div>
+      </div>
+    </section>
+    <footer class="flex flex-col items-center justify-center bg-stone-950">
+      <div
+        class="flex flex-col justify-center items-center md:flex-row gap-16 py-16"
+      >
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-envelope"></i>
+          <p>akhiljozeph10@gmail.com</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-location-dot"></i>
+          <p>Eranakulam, Kerala, India</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-phone"></i>
+          <p>91+ 9544810427</p>
+        </div>
+      </div>
+      <hr class="border-t border-[rgba(255,255,255,0.2)] w-4/5 mx-auto my-4" />
+      <div class="flex gap-12 text-white py-16">
+        <i class="hover:scale-125 hover:text-[var(--theme-color)] text-3xl fa-brands fa-x-twitter"></i>
+        <i class="hover:scale-125 hover:text-[var(--theme-color)] text-3xl fa-brands fa-instagram"></i>
+        <i class="hover:scale-125 hover:text-[var(--theme-color)] text-3xl fa-brands fa-facebook"></i>
+        <i class="hover:scale-125 hover:text-[var(--theme-color)] text-3xl fa-brands fa-github"></i>
+        <i class="hover:scale-125 hover:text-[var(--theme-color)] text-3xl fa-brands fa-linkedin"></i>
+      </div>
+      <hr class="border-t border-[rgba(255,255,255,0.2)] w-4/5 mx-auto my-4" />
+      <div class="flex py-12">
+        <p>Copyright © Akhil Joseph</p>
+      </div>
+    </footer>
+    <script
+      src="https://kit.fontawesome.com/c28836c5fb.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
